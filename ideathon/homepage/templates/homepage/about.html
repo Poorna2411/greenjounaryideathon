@@ -1,0 +1,166 @@
+<!-- homepage/templates/homepage/about.html -->
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Ideathon</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f0f2f5;
+            color: #333;
+        }
+        .navbar {
+            background-color: #00796b;
+        }
+        .navbar-brand, .nav-link {
+            color: #fff !important;
+        }
+        .themes-section {
+            padding: 60px 20px;
+            text-align: center;
+        }
+        .themes-section h2 {
+            font-size: 2em;
+            margin-bottom: 20px;
+            color: #00796b;
+        }
+        .themes-section .theme {
+            background: #fff;
+            margin: 10px 0;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            font-size: 1.1em;
+            text-align: left;
+            animation: fadeInUp 0.5s ease-in-out;
+        }
+        .footer {
+            background: #00796b;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+        }
+        .footer p {
+            margin: 0;
+        }
+        /* Custom Scrollbar Styles */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #888;
+            border-radius: 5px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #555;
+        }
+        @keyframes slideInDown {
+            from { transform: translateY(-100px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+        @keyframes fadeInUp {
+            from { transform: translateY(50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero-section h1 {
+                font-size: 2.5em;
+            }
+            .themes-section .theme {
+                font-size: 1em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <a class="navbar-brand" href="#">Green journey Ideathon</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'home'%}">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">registration</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'contact'%}">Contact</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+
+    <!-- Themes Section -->
+    <div id="themes" class="themes-section container">
+        <h2>Event Themes</h2>
+        <div class="theme">
+            <h3>Eco-friendly Tourism</h3>
+            <ul>
+                <li>How can we ensure that travelers are able to navigate cultural differences and unexpected weather-related issues without compromising their commitment to sustainable travel practices?</li>
+                <li>In what ways can the travel industry enhance its services to minimize disruptions for travelers, such as booking issues and navigation problems, while simultaneously fostering eco-friendly behaviors like using public transport and reducing waste?</li>
+                <li>Participants are encouraged to propose their own problem statements related to eco-friendly tourism.</li>
+            </ul>
+        </div>
+        <div class="theme">
+            <h3>Plastic Control</h3>
+            <p>Explore innovative solutions to reduce plastic waste and promote sustainable alternatives.</p>
+        </div>
+        <div class="theme">
+            <h3>Pollution</h3>
+            <p>Identify and develop strategies to combat different types of pollution and improve environmental health.</p>
+        </div>
+        <div class="theme">
+            <h3>Society</h3>
+            <p>Address social issues and create impactful solutions for the betterment of society.</p>
+        </div>
+        <div class="theme">
+            <h3>Agriculture</h3>
+            <p>Innovate in the agricultural sector to enhance sustainability and productivity.</p>
+        </div>
+        <div class="theme">
+            <h3>Student Innovation</h3>
+            <p>Encourage students to propose creative ideas and solutions to pressing problems in various domains.</p>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+        <p>&copy; 2024 Ideathon. All Rights Reserved.</p>
+    </div>
+
+    <!-- Bootstrap and jQuery -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            // Smooth scroll for links with class 'nav-link'
+            $('.nav-link').on('click', function(event) {
+                if (this.hash !== "") {
+                    event.preventDefault();
+                    var hash = this.hash;
+                    $('html, body').animate({
+                        scrollTop: $(hash).offset().top
+                    }, 800, function(){
+                        window.location.hash = hash;
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>

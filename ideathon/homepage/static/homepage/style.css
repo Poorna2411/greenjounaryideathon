@@ -1,0 +1,446 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    line-height: 1.6;
+    text-align: center;
+    background: url('background.jpg') no-repeat center center fixed;
+    background-size: cover;
+    background-attachment: fixed;
+    color: #fff;
+}
+
+
+.container {
+    width: 80%;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.header {
+    background: rgba(0, 0, 0, 0.9);
+    color: #fff;
+    padding: 1em 0;
+    position: relative;
+}
+
+.header .logo h1 {
+    margin: 0;
+    font-size: 2em;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    gap: 1em;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.notice-board {
+    background: rgba(0, 0, 0, 0.8);
+    padding: 15px;
+    margin-top: 10px;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+    margin: 20px auto;
+}
+
+.notice-board h2 {
+    margin: 0;
+    color: #ff9900;
+    font-size: 1.5em;
+}
+
+.notice-board ul {
+    list-style: none;
+    padding: 0;
+    margin: 10px 0 0 0;
+}
+
+.notice-board ul li {
+    margin: 0.5em 0;
+}
+
+.notice-board ul li a {
+    color: #ff9900;
+    text-decoration: none;
+    font-size: 1.2em;
+}
+
+.notice-board ul li a:hover {
+    color: #fff;
+    text-decoration: underline;
+}
+
+.dynamic-letter {
+    display: inline-block;
+    animation: color-change 5s infinite;
+}
+
+@keyframes color-change {
+    0% { color: #ff0000; }
+    20% { color: #ff9900; }
+    40% { color: #ffff00; }
+    60% { color: #00ff00; }
+    80% { color: #0000ff; }
+    100% { color: #ff00ff; }
+}
+
+/* Additional Styling */
+
+.banner-content {
+    padding: 2em 0;
+    text-align: center;
+    margin-top: 50px;
+}
+
+.btn {
+    background: #ff9900;
+    color: #fff;
+    padding: 0.5em 1em;
+    text-decoration: none;
+    border-radius: 5px;
+    display: inline-block;
+    margin-top: 1em;
+}
+
+section {
+    padding: 2em 0;
+    background: rgba(0, 0, 0, 0.6);
+    margin: 20px auto;
+    width: 80%;
+    border-radius: 10px;
+}
+
+section h3 {
+    margin-top: 0;
+    color: #ff9900;
+}
+
+footer {
+    background: rgba(0, 0, 0, 0.9);
+    color: #fff;
+    text-align: center;
+    padding: 1em 0;
+}
+
+ul {
+    padding: 0;
+    list-style: none;
+}
+
+li {
+    margin: 0.5em 0;
+}
+
+/* GIF Labels */
+.highlights li::before {
+    content: url('/static/homepage/highlight.gif');
+    display: inline-block;
+    margin-right: 10px;
+}
+
+.sponsors li::before {
+    content: url('/static/homepage/sponsor.gif');
+    display: inline-block;
+    margin-right: 10px;
+}
+
+/* Rules Page Styles */
+
+.rules-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    font-size: 1.1em;
+}
+
+.rules-list li {
+    margin-bottom: 1em;
+    padding: 1em;
+    background: rgba(0, 0, 0, 0.6);
+    border-radius: 5px;
+}
+
+.rules-list li::before {
+    content: "• ";
+    color: #ff9900;
+    font-weight: bold;
+}
+
+/* About Page Styles */
+
+.about-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    font-size: 1.1em;
+}
+
+.about-list li {
+    margin-bottom: 1em;
+    padding: 1em;
+    background: rgba(0, 0, 0, 0.6);
+    border-radius: 5px;
+    text-align: left;
+}
+
+/* Register Page Styles */
+
+.register {
+    padding: 2em 0;
+    background: #000;
+    margin: 1em auto;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+}
+
+.register .container {
+    width: 90%;
+    margin: 0 auto;
+}
+
+.register h2 {
+    color: #ff9900;
+    text-align: center;
+}
+
+.register form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.register form label,
+.register form input {
+    width: 100%;
+    max-width: 500px;
+    margin-top: 0.5em;
+}
+
+.register form input {
+    padding: 0.75em;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.register form #teamMembersContainer {
+    width: 100%;
+    max-width: 500px;
+    margin-top: 1em;
+}
+
+.register form button {
+    background: #ff9900;
+    color: #fff;
+    padding: 0.75em 1.5em;
+    text-decoration: none;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    font-size: 1em;
+    margin-top: 1em;
+}
+
+.register form button:hover {
+    background: #e68a00;
+}
+
+.register form #addTeamMember {
+    background: #333;
+    color: #fff;
+    padding: 0.5em 1em;
+    text-decoration: none;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    font-size: 1em;
+    margin-top: 1em;
+}
+
+.register form #addTeamMember:hover {
+    background: #444;
+}
+
+/* Login Page Styles */
+
+.login {
+    padding: 2em 0;
+    background: #000;
+    margin: 1em auto;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+}
+
+.login .container {
+    width: 90%;
+    margin: 0 auto;
+}
+
+.login h2 {
+    color: #ff9900;
+    text-align: center;
+}
+
+.login form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.login form label,
+.login form input {
+    width: 100%;
+    max-width: 500px;
+    margin-top: 0.5em;
+}
+
+.login form input {
+    padding: 0.75em;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.login form button {
+    background: #ff9900;
+    color: #fff;
+    padding: 0.75em 1.5em;
+    text-decoration: none;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    font-size: 1em;
+    margin-top: 1em;
+}
+
+.login form button:hover {
+    background: #e68a00;
+}
+
+/* Schedule Page Styles */
+
+.schedule {
+    padding: 2em 0;
+    background: #000;
+    margin: 1em auto;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    max-width: 800px;
+}
+
+.schedule .container {
+    width: 90%;
+    margin: 0 auto;
+}
+
+.schedule h2 {
+    color: #ff9900;
+    text-align: center;
+}
+
+.schedule table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1em;
+}
+
+.schedule table th,
+.schedule table td {
+    padding: 1em;
+    border: 1px solid #fff;
+    text-align: left;
+}
+
+.schedule table th {
+    background: #333;
+    color: #fff;
+}
+
+.schedule table tr:nth-child(even) {
+    background: #222;
+}
+
+/* Contact Page Styles */
+.contact {
+    padding: 2em;
+    background: #000;
+    margin: 1em auto;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+}
+
+.contact .container {
+    width: 90%;
+    margin: 0 auto;
+}
+
+.contact h2 {
+    color: #ff9900;
+    text-align: center;
+}
+
+.contact form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.contact form label,
+.contact form input,
+.contact form textarea {
+    width: 100%;
+    max-width: 100%;
+    margin-top: 0.5em;
+}
+
+.contact form input,
+.contact form textarea {
+    padding: 0.75em;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.contact form textarea {
+    resize: vertical;
+    height: 150px;
+}
+
+.contact form button {
+    background: #ff9900;
+    color: #fff;
+    padding: 0.75em 1.5em;
+    text-decoration: none;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    font-size: 1em;
+    margin-top: 1em;
+}
+
+.contact form button:hover {
+    background: #e68a00;
+}
+
+@media (max-width: 600px) {
+    .contact form label,
+    .contact form input,
+    .contact form textarea {
+        width: 100%;
+    }
+
+    .contact form button {
+        width: 100%;
+    }
+}

@@ -1,0 +1,354 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - {{ event_name }}</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Base Styles */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f3f4f6;
+            overflow-x: hidden;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Header */
+        .header {
+            background-color: #4a90e2;
+            color: white;
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        .header.scrolled {
+            background-color: #3b7abf;
+        }
+
+        .logo {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: white;
+            display: inline-block;
+            text-transform: uppercase;
+            animation: slideInFromLeft 1s ease;
+        }
+
+        @keyframes slideInFromLeft {
+            from {
+                transform: translateX(-100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        nav {
+            float: right;
+        }
+
+        nav ul {
+            list-style: none;
+        }
+
+        nav ul li {
+            display: inline-block;
+            margin-left: 30px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: white;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            color: #cce7ff;
+        }
+
+        /* Hero Section */
+        .hero {
+            background-color: #4a90e2;
+            color: white;
+            padding: 60px 0;
+            text-align: center;
+            animation: fadeIn 1s ease;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-size: 1.5rem;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 40px 0;
+            background-color: #fff;
+            text-align: center;
+        }
+
+        .contact h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            animation: slideInFromBottom 1s ease;
+        }
+
+        @keyframes slideInFromBottom {
+            from {
+                transform: translateY(100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        form {
+            max-width: 600px;
+            margin: 0 auto;
+            text-align: left;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            background-color: #f9f9f9;
+            animation: bounceIn 1s ease;
+        }
+
+        @keyframes bounceIn {
+            from {
+                transform: scale(0.5);
+                opacity: 0;
+            }
+            to {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 500;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-control:focus {
+            border-color: #4a90e2;
+            outline: none;
+        }
+
+        .error {
+            color: red;
+            font-size: 0.875rem;
+            margin-top: 5px;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: #4a90e2;
+            color: #fff;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            text-align: center;
+        }
+
+        .btn:hover {
+            background-color: #3b7abf;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #4a90e2;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+            position: absolute;
+            width: 100%;
+        }
+
+        footer p {
+            margin: 0;
+            font-size: 1rem;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .logo {
+                font-size: 2rem;
+            }
+
+            nav ul li {
+                display: block;
+                margin: 10px 0;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                font-size: 1.25rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            nav ul {
+                text-align: center;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .btn {
+                width: 100%;
+                padding: 12px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header" id="header">
+        <div class="container">
+            <div class="logo">
+                {% for letter in event_name %}
+                    <span class="dynamic-letter">{{ letter }}</span>
+                {% endfor %}
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="{% url 'home' %}">Home</a></li>
+                    <li><a href="{% url 'about' %}">Themes</a></li>
+                    <li><a href="{% url 'rules' %}">Rules</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h1>Welcome to {{ event_name }}</h1>
+            <p>Get in touch with us for any inquiries or support. We're here to help!</p>
+        </div>
+    </section>
+
+    <main>
+        <section class="contact">
+            <div class="container">
+                <h2>Contact Us</h2>
+                <form method="post">
+                    {% csrf_token %}
+                    <div class="form-group">
+                        {{ form.name.label_tag }}
+                        {{ form.name }}
+                        <div class="error">{{ form.name.errors }}</div>
+                    </div>
+                    <div class="form-group">
+                        {{ form.email.label_tag }}
+                        {{ form.email }}
+                        <div class="error">{{ form.email.errors }}</div>
+                    </div>
+                    <div class="form-group">
+                        {{ form.subject.label_tag }}
+                        {{ form.subject }}
+                        <div class="error">{{ form.subject.errors }}</div>
+                    </div>
+                    <div class="form-group">
+                        {{ form.message.label_tag }}
+                        {{ form.message }}
+                        <div class="error">{{ form.message.errors }}</div>
+                    </div>
+                    <button type="submit" class="btn">Send Message</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 {{ event_name }}. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Sticky Header
+        window.addEventListener('scroll', function() {
+            var header = document.getElementById('header');
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // Simple Form Validation
+        document.addEventListener("DOMContentLoaded", function() {
+            const form = document.querySelector("form");
+            form.addEventListener("submit", function(event) {
+                const name = form.querySelector("[name='name']").value;
+                const email = form.querySelector("[name='email']").value;
+                const subject = form.querySelector("[name='subject']").value;
+                const message = form.querySelector("[name='message']").value;
+
+                if (!name || !email || !subject || !message) {
+                    event.preventDefault();
+                    alert("Please fill out all fields.");
+                }
+            });
+        });
+    </script>
+</body>
+</html>

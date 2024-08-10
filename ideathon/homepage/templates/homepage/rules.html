@@ -1,0 +1,182 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ideathon Rules</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f0f2f5;
+            color: #333;
+        }
+        .navbar {
+            background-color: #00796b;
+        }
+        .navbar-brand, .nav-link {
+            color: #fff !important;
+        }
+        .hero-section {
+            background: url('{% static 'Designer (1).png'%}') no-repeat center center;
+            background-size: cover;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-align: center;
+            padding: 0 20px;
+        }
+        .hero-section h1 {
+            font-size: 3em;
+            margin-bottom: 20px;
+            animation: slideInDown 1s ease-in-out;
+        }
+        .hero-section p {
+            font-size: 1.2em;
+            animation: fadeIn 2s ease-in-out;
+        }
+        .rules-section {
+            padding: 60px 20px;
+            text-align: center;
+        }
+        .rules-section h2 {
+            font-size: 2em;
+            margin-bottom: 20px;
+            color: #00796b;
+        }
+        .rules-section ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        .rules-section ul li {
+            background: #fff;
+            margin: 10px 0;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            font-size: 1.1em;
+            text-align: left;
+            animation: fadeInUp 0.5s ease-in-out;
+            display: flex;
+            align-items: center;
+        }
+        .rules-section ul li img {
+            width: 50px;
+            height: 50px;
+            margin-right: 20px;
+        }
+        .footer {
+            background: #00796b;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+        }
+        .footer p {
+            margin: 0;
+        }
+        /* Custom Scrollbar Styles */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #888;
+            border-radius: 5px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #555;
+        }
+        @keyframes slideInDown {
+            from { transform: translateY(-100px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        @keyframes fadeInUp {
+            from { transform: translateY(50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero-section h1 {
+                font-size: 2.5em;
+            }
+            .hero-section p {
+                font-size: 1em;
+            }
+            .rules-section ul li {
+                font-size: 1em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <a class="navbar-brand" href="#">Ideathon</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'home'%}">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'about'%}">Themes</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'contact'%}">Contact</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Rules Section -->
+    <div id="rules" class="rules-section container">
+        <h2>Event Rules</h2>
+        <ul>
+            <li><img src="https://media.giphy.com/media/26FPCXdkvDbKBbgOI/giphy.gif" alt="rule-icon"> 1.The ideathon is open to students of all disciplines, but participants must have a valid student ID.</li>
+            <li><img src="https://media.giphy.com/media/l41JOmLznXLumzBIk/giphy.gif" alt="rule-icon"> 2.From a team, any one member can register.</li>
+            <li><img src="https://media.giphy.com/media/l4FGDQYPL6x2bsHoE/giphy.gif" alt="rule-icon"> 3.Participants can form teams of up to 5 members(min 2),  per member 30/- rupees will be charged.</li>
+            <li><img src="https://media.giphy.com/media/3o7TKsQ7pn26NOUnx2/giphy.gif" alt="rule-icon"> 4.After completing the registration process, we will provide login details via email to the team lead's email address. Through the login, the team can submit their PPT.
+            <li><img src="https://media.giphy.com/media/l1J9JrAGVBqxtjOxy/giphy.gif" alt="rule-icon"> 5.Projects must be submitted through the online platform by the specified deadline. Late submissions will not be accepted..</li>
+            <li><img src="https://media.giphy.com/media/l1J3pT7PfLgSRMnFC/giphy.gif" alt="rule-icon"> 6. Follow the Code of Conduct provided by the organizers.</li>
+        </ul>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+        <p>&copy; 2024 Ideathon. All Rights Reserved.</p>
+    </div>
+
+    <!-- Bootstrap and jQuery -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            // Smooth scroll for links with class 'nav-link'
+            $('.nav-link').on('click', function(event) {
+                if (this.hash !== "") {
+                    event.preventDefault();
+                    var hash = this.hash;
+                    $('html, body').animate({
+                        scrollTop: $(hash).offset().top
+                    }, 800, function(){
+                        window.location.hash = hash;
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>

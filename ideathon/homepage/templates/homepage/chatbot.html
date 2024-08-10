@@ -1,0 +1,70 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Chatbot</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .chatbox {
+            max-width: 600px;
+            margin: 50px auto;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        .messages {
+            height: 300px;
+            overflow-y: scroll;
+            border-bottom: 1px solid #ccc;
+            margin-bottom: 10px;
+        }
+        .message {
+            margin-bottom: 10px;
+        }
+        .message.user {
+            text-align: right;
+        }
+        .message.bot {
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+    <div class="chatbox">
+        <div class="messages" id="messages"></div>
+        <input type="text" id="messageInput" class="form-control" placeholder="Type a message...">
+        <button id="sendButton" class="btn btn-primary mt-2">Send</button>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('#sendButton').click(function() {
+                var message = $('#messageInput').val();
+                $('#messages').append('<div class="message user">' + message + '</div>');
+                $('#messageInput').val('');
+
+                $.ajax({
+                    type: 'POST',
+                    url: '/chatbot/response/',
+                    data: {
+                        'message': message,
+                        'csrfmiddlewaretoken': '{{ csrf_token }}'
+                    },
+                    success: function(response) {
+                        $('#messages').append('<div class="message bot">' + response.response + '</div>');
+                        $('#messages').scrollTop($('#messages')[0].scrollHeight);
+                    }
+                });
+            });
+
+            $('#messageInput').keypress(function(e) {
+                if (e.which == 13) {
+                    $('#sendButton').click();
+                }
+            });
+        });
+    </script>
+</body>
+</html>

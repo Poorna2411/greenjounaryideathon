@@ -1,0 +1,299 @@
+/* homepage/static/homepage/style.css */
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    line-height: 1.6;
+    text-align: center;
+    background: url('/static/homepage/background.jpg') no-repeat center center fixed;
+    background-size: cover;
+    color: #fff;
+}
+
+.container {
+    width: 80%;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.header {
+    background: rgba(0, 0, 0, 0.9);
+    color: #fff;
+    padding: 1em 0;
+    position: relative;
+}
+
+.header .logo h1 {
+    margin: 0;
+    font-size: 2em;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    gap: 1em;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.banner {
+    background: rgba(0, 0, 0, 0.7);
+    overflow: hidden;
+    padding: 10px 0;
+}
+
+.marquee {
+    display: flex;
+    white-space: nowrap;
+    animation: scroll-left var(--scroll-speed, 10s) linear infinite;
+}
+
+.marquee p {
+    display: inline-block;
+    margin-right: 50px;
+}
+
+/* Ensure the animation works smoothly */
+@keyframes scroll-left {
+    0% {
+        transform: translateX(100%);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
+.banner-content {
+    padding: 2em 0;
+    text-align: center;
+    margin-top: 50px;
+}
+
+.btn {
+    background: #ff9900;
+    color: #fff;
+    padding: 0.5em 1em;
+    text-decoration: none;
+    border-radius: 5px;
+    display: inline-block;
+    margin-top: 1em;
+}
+
+section {
+    padding: 2em 0;
+    background: rgba(0, 0, 0, 0.6);
+    margin: 20px auto;
+    width: 80%;
+    border-radius: 10px;
+}
+
+section h3 {
+    margin-top: 0;
+    color: #ff9900;
+}
+
+footer {
+    background: rgba(0, 0, 0, 0.9);
+    color: #fff;
+    text-align: center;
+    padding: 1em 0;
+}
+
+ul {
+    padding: 0;
+    list-style: none;
+}
+
+li {
+    margin: 0.5em 0;
+}
+
+/* GIF Labels */
+.highlights li::before {
+    content: url('/static/homepage/highlight.gif');
+    display: inline-block;
+    margin-right: 10px;
+}
+
+.sponsors li::before {
+    content: url('/static/homepage/sponsor.gif');
+    display: inline-block;
+    margin-right: 10px;
+}
+
+/* Dynamic Letter Colors */
+.dynamic-letter {
+    display: inline-block;
+    animation: color-change 5s infinite;
+}
+
+@keyframes color-change {
+    0% { color: #ff0000; }
+    20% { color: #ff9900; }
+    40% { color: #ffff00; }
+    60% { color: #00ff00; }
+    80% { color: #0000ff; }
+    100% { color: #ff00ff; }
+}
+
+
+
+/* Rules Page Styles */
+
+
+.rules-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    font-size: 1.1em;
+}
+
+.rules-list li {
+    margin-bottom: 1em;
+    padding: 1em;
+    background: rgba(0, 0, 0, 0.6);
+    border-radius: 5px;
+}
+
+.rules-list li::before {
+    content: "• ";
+    color: #ff9900;
+    font-weight: bold;
+}
+/* homepage/static/homepage/style.css */
+
+/* Existing styles remain unchanged */
+
+/* About Page Styles */
+.about-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    font-size: 1.1em;
+}
+
+.about-list li {
+    margin-bottom: 1em;
+    padding: 1em;
+    background: rgba(0, 0, 0, 0.6);
+    border-radius: 5px;
+    text-align: left;
+}
+
+/* homepage/static/homepage/style.css */
+
+/* Existing styles remain unchanged */
+
+.scroller {
+    overflow: hidden;
+    position: relative;
+    height: 50px;
+    background: #ff9900;
+    color: #fff;
+    border-radius: 5px;
+    margin: 2em 0;
+}
+
+.scroller-content {
+    display: flex;
+    animation: scroll 10s linear infinite;
+}
+
+.update {
+    flex: 1;
+    min-width: 100%;
+    padding: 1em;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+/* Scroller animation */
+@keyframes scroll {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-100%); }
+}
+
+/* homepage/static/homepage/style.css */
+
+.register {
+    padding: 2em 0;
+    background: #000;
+    margin: 1em auto;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    max-width: 600px; /* Center the form */
+}
+
+.register .container {
+    width: 90%;
+    margin: 0 auto;
+}
+
+.register h2 {
+    color: #ff9900;
+    text-align: center;
+}
+
+.register form {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center form elements */
+}
+
+.register form label,
+.register form input {
+    width: 100%;
+    max-width: 500px; /* Limit width of form elements */
+    margin-top: 0.5em;
+}
+
+.register form input {
+    padding: 0.75em;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.register form #teamMembersContainer {
+    margin-top: 1em;
+    width: 100%;
+    max-width: 500px; /* Limit width of team member inputs */
+}
+
+.register form p {
+    margin-top: 1em;
+    font-size: 1.2em;
+}
+
+.register form button {
+    background: #ff9900;
+    color: #fff;
+    padding: 0.75em 1.5em;
+    border: none;
+    border-radius: 5px;
+    display: inline-block;
+    margin-top: 1em;
+    cursor: pointer;
+    font-size: 1em;
+}
+
+#paymentDetails {
+    display: none;
+    text-align: center; /* Center the payment details */
+}
+
+#paymentDetails img {
+    margin-top: 1em;
+    width: 50%; /* Set image width to medium size */
+    max-width: 300px; /* Ensure it doesn't get too large */
+    height: auto; /* Maintain aspect ratio */
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}

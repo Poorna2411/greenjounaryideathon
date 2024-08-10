@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ideathon Registration</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <style>
+        body {
+            background: linear-gradient(135deg, #f0f2f5, #e9ecef, #f0f2f5);
+            background-size: 400% 400%;
+            animation: backgroundAnimation 15s ease infinite;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        @keyframes backgroundAnimation {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+        .form-container {
+            max-width: 700px;
+            margin: 30px auto;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+            background: #ffffff;
+            animation: fadeIn 1s ease;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        .form-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .form-header h1 {
+            color: #343a40;
+            font-size: 2.5rem;
+            font-weight: 700;
+        }
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        .form-group label {
+            font-size: 1.1rem;
+            color: #495057;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+        }
+        .form-group .fa {
+            margin-right: 10px;
+            color: #007bff;
+        }
+        .form-control {
+            border-radius: 5px;
+            border: 1px solid #ced4da;
+            transition: border-color 0.3s ease;
+            height: 40px;
+        }
+        .form-control:focus {
+            border-color: #80bdff;
+            box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+        }
+        .total-amount {
+            font-weight: 700;
+            color: #007bff;
+        }
+        .btn-custom, .btn-home {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            padding: 12px 20px;
+            font-size: 1.1rem;
+            transition: background-color 0.3s ease;
+            width: 100%;
+            max-width: 150px;
+            margin: 10px auto;
+        }
+        .btn-custom:disabled {
+            background-color: #b3d7ff;
+        }
+        .btn-home {
+            background-color: #6c757d;
+        }
+        .btn-home:hover {
+            background-color: #5a6268;
+        }
+        .error-message {
+            color: #dc3545;
+            font-size: 0.875em;
+            margin-top: 10px;
+        }
+        @media (max-width: 576px) {
+            .form-header h1 {
+                font-size: 2rem;
+            }
+            .form-container {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container form-container">
+        <div class="form-header">
+            <h1>Register for the Ideathon</h1>
+        </div>
+        <form method="post" class="needs-validation" novalidate>
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="id_student_name"><i class="fas fa-user"></i> Student Name (team lead):</label>
+                {{ form.student_name }}
+            </div>
+            <div class="form-group">
+                <label for="id_email"><i class="fas fa-envelope"></i> Email (team lead):</label>
+                {{ form.email }}
+            </div>
+            <div class="form-group">
+                <label for="id_phone_number"><i class="fas fa-phone"></i> Phone Number (team lead):</label>
+                {{ form.phone_number }}
+            </div>
+            <div class="form-group">
+                <label for="id_roll_number"><i class="fas fa-id-badge"></i> Roll Number (team lead):</label>
+                {{ form.roll_number }}
+            </div>
+            <div class="form-group">
+                <label for="id_college_name"><i class="fas fa-university"></i> College Name:</label>
+                {{ form.college_name }}
+            </div>
+            <div class="form-group">
+                <label for="id_team_size"><i class="fas fa-users"></i> Number of Team Members:</label>
+                {{ form.team_size }}
+            </div>
+            <div class="form-group">
+                <label for="id_team_member_names"><i class="fas fa-user-friends"></i> Team Member Names:</label>
+                {{ form.team_member_names }}
+            </div>
+            <div id="error-messages" class="error-message"></div>
+            <div class="form-group">
+                <p>Total Amount: ₹<span id="total-amount" class="total-amount">0.00</span></p>
+            </div>
+            <div class="text-center">
+                <button type="submit" class="btn btn-custom" disabled>Next</button>
+                <a href="{% url 'home' %}" class="btn btn-home ml-3">Home</a>
+            </div>
+        </form>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const form = document.querySelector('form');
+            const inputs = form.querySelectorAll('input, textarea');
+            const nextButton = form.querySelector('button[type="submit"]');
+            const totalAmountDisplay = document.getElementById('total-amount');
+            const errorMessages = document.getElementById('error-messages');
+
+            function validateForm() {
+                let valid = true;
+                let errors = [];
+
+                inputs.forEach(input => {
+                    if (!input.value.trim()) {
+                        valid = false;
+                        errors.push(`Please fill in the ${input.name} field.`);
+                    }
+                });
+
+                nextButton.disabled = !valid;
+                errorMessages.innerHTML = errors.join('<br>');
+            }
+
+            inputs.forEach(input => {
+                input.addEventListener('input', function() {
+                    if (input.id === 'id_team_size') {
+                        const teamSize = parseInt(input.value) || 0;
+                        totalAmountDisplay.innerText = (teamSize * 30).toFixed(2);
+                    }
+                    validateForm();
+                });
+            });
+
+            validateForm();
+
+            form.addEventListener('submit', function(event) {
+                if (!form.checkValidity()) {
+                    event.preventDefault();
+                    event.stopPropagation();
+                }
+
+                form.classList.add('was-validated');
+            }, false);
+        });
+    </script>
+</body>
+</html>
